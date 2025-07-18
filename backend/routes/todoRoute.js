@@ -11,7 +11,9 @@ router.get("/", async(req, res) => {
     }
     catch(error)
     {
-        console.log(error);
+      res.status(400).json({
+        message:error.message
+      })
     }
 });
 
@@ -28,7 +30,9 @@ if(todoList)
  res.json(todoList);
 }catch(error)
 {
-    console.log(error);
+    res.status(400).json({
+        message:error.message
+      })
 }
 });
 
@@ -48,7 +52,9 @@ const { _id, title } = req.body;
   res.json(updatedTodo);
     }catch(error)
     {
-        console.log(error);
+        res.status(400).json({
+        message:error.message
+      })
     }
   
 
@@ -66,7 +72,9 @@ router.delete("/", async(req, res) => {
     message: `This item with id- ${_id}  doesn't not exist`,
   });
 }catch(error){
-  console.log(error);
+ res.status(400).json({
+        message:error.message
+      })
 }
 
   // let filteredtask = todoList.filter((task) => task.id !== id);
@@ -86,7 +94,9 @@ router.put("/toggle", async(req, res) => {
   res.status(404).json({
     message: `item with ${id} dosen't exist`,
   });}catch(error){
-    console.log(error);
+    res.status(400).json({
+        message:error.message
+      })
   }
 });
 

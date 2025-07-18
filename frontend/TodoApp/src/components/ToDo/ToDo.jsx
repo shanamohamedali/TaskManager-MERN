@@ -24,7 +24,7 @@ export function ToDo() {
       if (response) {
         setTodoList(response.data);
       } else {
-        setError("Todo List is empty please add a task");
+        setError(response.message || "Todo List is empty please add a task");
       }
     } catch (error) {
       console.log(error);

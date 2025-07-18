@@ -58,6 +58,10 @@ export function TodoEdit({ todoList, setTodoList, editItem, setEditItem }) {
           name="editInput"
           type="text"
           placeholder="Edit Todo Item.."
+          onKeyDown={(e)=>{
+            if(e.key==="Enter") handleChangeSave(e)
+          }
+           }
         />
         <TodoButton onClick={handleChangeSave} label="SAVE" />
         <TodoButton onClick={() => setEditItem("")} label="CANCEL" />
